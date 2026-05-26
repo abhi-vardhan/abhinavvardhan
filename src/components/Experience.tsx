@@ -60,11 +60,16 @@ const education = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-24 border-t border-white/[0.06]">
+    <section
+      id="experience"
+      className="relative py-24 border-t border-white/[0.06]"
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <span className="font-mono text-xs text-[#0070f3] uppercase tracking-widest">04 / Experience</span>
+          <span className="font-mono text-xs text-[#0070f3] uppercase tracking-widest">
+            04 / Experience
+          </span>
           <span className="flex-1 max-w-[60px] h-px bg-[#0070f3]/30" />
         </div>
 
@@ -88,30 +93,46 @@ export default function Experience() {
                   <div className="geist-card p-6">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                       <div>
-                        <h3 className="text-base font-semibold text-white">{exp.role}</h3>
+                        <h3 className="text-base font-semibold text-white">
+                          {exp.role}
+                        </h3>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className="text-sm text-[#888888]">{exp.company}</span>
+                          <span className="text-sm text-[#888888]">
+                            {exp.company}
+                          </span>
                           <span className="text-[#333333]">·</span>
-                          <span className="text-xs text-[#555555]">{exp.location}</span>
+                          <span className="text-xs text-[#555555]">
+                            {exp.location}
+                          </span>
                         </div>
                       </div>
                       <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
-                        <span className="font-mono text-xs text-[#555555]">{exp.period}</span>
+                        <span className="font-mono text-xs text-[#555555]">
+                          {exp.period}
+                        </span>
                         <span
                           className="geist-badge"
-                          style={{ color: exp.typeColor, borderColor: `${exp.typeColor}33` }}
+                          style={{
+                            color: exp.typeColor,
+                            borderColor: `${exp.typeColor}33`,
+                          }}
                         >
                           {exp.type}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-sm text-[#666666] leading-relaxed mb-4">{exp.description}</p>
+                    <p className="text-sm text-[#666666] leading-relaxed mb-4">
+                      {exp.description}
+                    </p>
 
                     {/* Highlights */}
                     <ul className="space-y-1.5 mb-4">
                       {exp.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 text-sm text-[#555555]">
+                        <li
+                          key={h}
+                          className="flex items-start gap-2 text-sm text-[#555555]"
+                        >
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-[#0070f3] shrink-0" />
                           {h}
                         </li>
@@ -121,7 +142,10 @@ export default function Experience() {
                     {/* Tech stack */}
                     <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.04]">
                       {exp.stack.map((tech) => (
-                        <span key={tech} className="px-2 py-0.5 text-xs font-mono text-[#555555] bg-white/[0.03] border border-white/[0.05] rounded">
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 text-xs font-mono text-[#555555] bg-white/[0.03] border border-white/[0.05] rounded"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -135,14 +159,24 @@ export default function Experience() {
           {/* Right — Education + Extras */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-4">Education</h3>
+              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-4">
+                Education
+              </h3>
               {education.map((edu) => (
                 <div key={edu.institution} className="geist-card p-5">
-                  <div className="text-sm font-semibold text-white mb-1">{edu.degree}</div>
-                  <div className="text-sm text-[#666666] mb-3">{edu.institution}</div>
+                  <div className="text-sm font-semibold text-white mb-1">
+                    {edu.degree}
+                  </div>
+                  <div className="text-sm text-[#666666] mb-3">
+                    {edu.institution}
+                  </div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs text-[#444444]">{edu.period}</span>
-                    <span className="font-mono text-xs text-[#0070f3]">GPA {edu.gpa}</span>
+                    <span className="font-mono text-xs text-[#444444]">
+                      {edu.period}
+                    </span>
+                    <span className="font-mono text-xs text-[#0070f3]">
+                      GPA {edu.gpa}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -150,18 +184,30 @@ export default function Experience() {
 
             {/* Certifications */}
             <div>
-              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-4">Certifications</h3>
+              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-4">
+                Certifications
+              </h3>
               <div className="space-y-3">
                 {[
-                  { name: "AWS Solutions Architect", org: "Amazon Web Services", year: "2023" },
-                  { name: "Meta Frontend Developer", org: "Meta", year: "2022" },
+                  {
+                    name: "AWS Solutions Architect",
+                    org: "Amazon Web Services",
+                    year: "2023",
+                  },
+                  {
+                    name: "Meta Frontend Developer",
+                    org: "Meta",
+                    year: "2022",
+                  },
                   { name: "Google UX Design", org: "Google", year: "2022" },
                 ].map((cert) => (
                   <div key={cert.name} className="geist-card p-4">
                     <div className="text-sm text-white mb-0.5">{cert.name}</div>
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-[#555555]">{cert.org}</span>
-                      <span className="font-mono text-xs text-[#444444]">{cert.year}</span>
+                      <span className="font-mono text-xs text-[#444444]">
+                        {cert.year}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -170,9 +216,12 @@ export default function Experience() {
 
             {/* Open source */}
             <div className="geist-card p-5 bg-gradient-to-br from-[#0070f3]/[0.06] to-transparent">
-              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-3">Open Source</h3>
+              <h3 className="text-xs font-mono text-[#444444] uppercase tracking-widest mb-3">
+                Open Source
+              </h3>
               <p className="text-sm text-[#555555] leading-relaxed mb-3">
-                Active contributor to several open-source projects including React ecosystem libraries and developer tools.
+                Active contributor to several open-source projects including
+                React ecosystem libraries and developer tools.
               </p>
               <div className="flex gap-3 font-mono text-xs">
                 <div>

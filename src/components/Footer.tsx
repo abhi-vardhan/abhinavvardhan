@@ -37,7 +37,10 @@ export default function Footer() {
             <a
               href="/"
               className="inline-flex items-center justify-center w-8 h-8 border text-sm font-bold text-white select-none"
-              style={{ borderColor: "rgba(255,255,255,0.2)", fontFamily: "var(--font-geist-mono)" }}
+              style={{
+                borderColor: "rgba(255,255,255,0.2)",
+                fontFamily: "var(--font-geist-mono)",
+              }}
               aria-label="Home"
             >
               a
@@ -51,11 +54,16 @@ export default function Footer() {
           <div className="flex gap-10 sm:gap-16 flex-wrap">
             {navCols.map((col) => (
               <div key={col.heading}>
-                <p className="text-xs text-[#555] uppercase tracking-widest font-mono mb-3">{col.heading}</p>
+                <p className="text-xs text-[#555] uppercase tracking-widest font-mono mb-3">
+                  {col.heading}
+                </p>
                 <ul className="space-y-2">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <a href={l.href} className="text-sm text-[#555] hover:text-white transition-colors">
+                      <a
+                        href={l.href}
+                        className="text-sm text-[#555] hover:text-white transition-colors"
+                      >
                         {l.label}
                       </a>
                     </li>
@@ -68,8 +76,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/[0.05] pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-[#333]">© {year} Abhinav. All rights reserved.</p>
-          <p className="text-xs text-[#333]">Built with Next.js &amp; Tailwind CSS</p>
+          <p className="text-xs text-[#333]">
+            © {year} Abhinav. All rights reserved.
+          </p>
+          <p className="text-xs text-[#333]">
+            Built with Next.js &amp; Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Abhinav — Developer Portfolio",
-  description: "Full-stack developer crafting modern web experiences with clean code and thoughtful design.",
+  description:
+    "Full-stack developer crafting modern web experiences with clean code and thoughtful design.",
   keywords: ["developer", "portfolio", "full-stack", "react", "nextjs"],
 };
 

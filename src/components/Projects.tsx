@@ -1,206 +1,282 @@
+/* ─────────────────────────────────────────────────────────────
+   Selected Work  —  two large cards matching the reference
+───────────────────────────────────────────────────────────── */
+
+function PhoneMockup() {
+  return (
+    /* Tilted phone, positioned to bleed off the right edge */
+    <div
+      className="absolute right-[-30px] top-1/2 -translate-y-1/2"
+      style={{ transform: "translateY(-50%) rotate(6deg)" }}
+    >
+      {/* Phone shell */}
+      <div
+        className="relative"
+        style={{
+          width: 220,
+          height: 440,
+          borderRadius: 36,
+          background: "#1c1c1e",
+          boxShadow: "0 40px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(255,255,255,0.12)",
+        }}
+      >
+        {/* Side button */}
+        <div className="absolute right-[-4px] top-[88px] w-[4px] h-10 rounded-r bg-[#2c2c2e]" />
+        {/* Volume buttons */}
+        <div className="absolute left-[-4px] top-[72px] w-[4px] h-8 rounded-l bg-[#2c2c2e]" />
+        <div className="absolute left-[-4px] top-[116px] w-[4px] h-8 rounded-l bg-[#2c2c2e]" />
+
+        {/* Screen bezel */}
+        <div
+          className="absolute inset-[3px] overflow-hidden"
+          style={{ borderRadius: 33, background: "#111" }}
+        >
+          {/* Dynamic island */}
+          <div
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-10"
+            style={{ width: 88, height: 24, borderRadius: 12, background: "#000" }}
+          />
+
+          {/* Status bar */}
+          <div className="flex items-center justify-between px-5 pt-4 pb-1 text-[9px] text-white font-semibold">
+            <span>9:41</span>
+            <div className="flex items-center gap-1">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="white">
+                <rect x="0" y="3" width="2" height="5" rx="0.5" />
+                <rect x="3" y="2" width="2" height="6" rx="0.5" />
+                <rect x="6" y="1" width="2" height="7" rx="0.5" />
+                <rect x="9" y="0" width="2" height="8" rx="0.5" />
+              </svg>
+              <svg width="13" height="9" viewBox="0 0 13 9" fill="white">
+                <path d="M6.5 1.5C8.5 1.5 10.3 2.3 11.6 3.6L13 2.2C11.3 0.8 9 0 6.5 0S1.7.8 0 2.2L1.4 3.6C2.7 2.3 4.5 1.5 6.5 1.5Z"/>
+                <path d="M6.5 4C7.8 4 9 4.6 9.8 5.5L11.2 4.1C10 2.8 8.3 2 6.5 2S3 2.8 1.8 4.1L3.2 5.5C4 4.6 5.2 4 6.5 4Z"/>
+                <circle cx="6.5" cy="7.5" r="1.5"/>
+              </svg>
+              <div className="flex items-center gap-0.5">
+                <div className="w-4 h-2 rounded-[2px] border border-white/60 flex items-center px-px">
+                  <div className="h-full w-3/4 rounded-[1px] bg-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* App content */}
+          <div className="px-4 pt-2">
+            {/* Top row */}
+            <div className="flex items-center justify-between mb-3">
+              <div className="w-7 h-7 rounded-full" style={{ background: "#f59e0b" }} />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </div>
+
+            {/* Header */}
+            <p className="text-[9px] text-white/40 mb-0.5">This month&apos;s expenses</p>
+            <div className="flex items-baseline gap-1 mb-3">
+              <span className="text-[10px] text-white/50">$</span>
+              <span className="text-2xl font-bold text-white">50.64</span>
+            </div>
+
+            {/* Week/Month/Year tabs */}
+            <div className="flex rounded-lg overflow-hidden mb-4" style={{ background: "#2c2c2e" }}>
+              {["Week", "Month", "Year"].map((t) => (
+                <div
+                  key={t}
+                  className="flex-1 text-center py-1 text-[8px] font-semibold"
+                  style={t === "Month" ? { background: "#4ade80", color: "#000" } : { color: "rgba(255,255,255,0.4)" }}
+                >
+                  {t}
+                </div>
+              ))}
+            </div>
+
+            {/* Due soon label */}
+            <p className="text-[8px] text-white/40 mb-2">Due soon</p>
+
+            {/* Subscription rows */}
+            {[
+              { name: "Xbox Game Pass", date: "03/06/2023", price: "$14.99 / month", color: "#22c55e", letter: "X" },
+              { name: "Netflix",        date: "14/06/2023", price: "$13.99 / month", color: "#ef4444", letter: "N" },
+              { name: "Amazon Prime",   date: "18/06/2023", price: "$139.99 / year", color: "#38bdf8", letter: "P" },
+            ].map((s) => (
+              <div key={s.name} className="flex items-center gap-2 mb-2 px-2 py-1.5 rounded-lg" style={{ background: "#2c2c2e" }}>
+                <div className="w-5 h-5 rounded-md flex items-center justify-center text-[7px] font-bold text-white flex-shrink-0" style={{ background: s.color }}>
+                  {s.letter}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[7px] text-white font-medium truncate">{s.name}</p>
+                  <p className="text-[6px] text-white/30">{s.date}</p>
+                </div>
+                <p className="text-[6px] text-white/50 flex-shrink-0">{s.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TabletMockup() {
+  return (
+    <div
+      className="absolute right-[-20px] top-1/2 -translate-y-1/2"
+      style={{ transform: "translateY(-50%) rotate(3deg)" }}
+    >
+      <div
+        className="relative"
+        style={{
+          width: 300,
+          height: 390,
+          borderRadius: 20,
+          background: "#1c1c1e",
+          boxShadow: "0 40px 80px rgba(0,0,0,0.7), 0 0 0 1.5px rgba(255,255,255,0.12)",
+        }}
+      >
+        {/* Side button */}
+        <div className="absolute right-[-3px] top-10 w-[3px] h-8 rounded-r bg-[#2c2c2e]" />
+
+        {/* Screen */}
+        <div className="absolute inset-[3px] rounded-[17px] overflow-hidden" style={{ background: "#0f0f0f" }}>
+          {/* Browser chrome */}
+          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.06]" style={{ background: "#1a1a1a" }}>
+            <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+            <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
+            <div className="w-2 h-2 rounded-full bg-[#28c840]" />
+            <div className="flex-1 mx-2 h-3.5 rounded-full px-2 text-[6px] text-white/30 flex items-center" style={{ background: "#2a2a2a" }}>
+              react.dev/learn
+            </div>
+          </div>
+
+          {/* Docs layout */}
+          <div className="flex h-full">
+            {/* Sidebar */}
+            <div className="w-20 border-r border-white/[0.05] p-2 flex-shrink-0" style={{ background: "#141414" }}>
+              <div className="space-y-1.5">
+                {["Learn", "Reference", "Community", "Blog"].map((item) => (
+                  <div key={item} className="text-[6px] text-white/40 py-1 px-1.5 rounded" style={item === "Learn" ? { background: "#2a2a2a", color: "rgba(255,255,255,0.8)" } : {}}>
+                    {item}
+                  </div>
+                ))}
+                <div className="pt-2 space-y-1">
+                  {["Get Started", "Installation", "Quick Start", "Tutorial"].map((item) => (
+                    <div key={item} className="text-[5.5px] text-white/30 py-0.5 px-1.5">{item}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 p-3 overflow-hidden">
+              {/* Arabic-style RTL text blocks (matching screenshot) */}
+              <div className="text-right space-y-2">
+                <div className="text-[9px] font-bold text-white text-right" dir="rtl">مرحبًا بك في React</div>
+                <div className="space-y-1">
+                  {[90, 75, 82, 68, 78, 85, 60, 72].map((w, i) => (
+                    <div key={i} className="h-[5px] rounded ml-auto" style={{ width: `${w}%`, background: "rgba(255,255,255,0.12)" }} />
+                  ))}
+                </div>
+                <div className="text-[7px] font-semibold text-white/60 text-right mt-2" dir="rtl">البدء السريع</div>
+                <div className="space-y-1">
+                  {[85, 70, 65, 80, 55].map((w, i) => (
+                    <div key={i} className="h-[5px] rounded ml-auto" style={{ width: `${w}%`, background: "rgba(255,255,255,0.08)" }} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const projects = [
   {
     id: 1,
-    icon: { bg: "#1a5c38", char: "B", color: "#4ade80" },
-    title: "Buddi — The free subscriptions manager",
-    desc: "A beautifully crafted iOS widget bridge that helps you keep track and gain insights on your subscriptions, and avoid overspending without even opening the app.",
-    tags: ["React Native", "iOS"],
-    link: "#",
-    mockup: "phone",
-    mockupAccent: "#4ade80",
+    icon: (
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 flex-shrink-0"
+        style={{ background: "linear-gradient(135deg, #1a3a1f 0%, #0f2e13 100%)", border: "1px solid rgba(74,222,128,0.2)" }}>
+        {/* Lightning bolt */}
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4.5 13.5H11L10 22L20.5 10H14L13 2Z" fill="#4ade80" />
+        </svg>
+      </div>
+    ),
+    title: "Subbi — The free subscriptions manager",
+    desc: "Subbi is a side project that I've built to help me keep track of how much I spend on subscriptions and also to prevent the \"accidental\" bill after a 14-day trail ends. It helps you keep track of bills like Netflix, Spotify, Xbox Game Pass, Bus Card, Bank Cards, and many more.",
+    linkLabel: "Download App",
+    mockup: <PhoneMockup />,
   },
   {
     id: 2,
-    icon: { bg: "#1e3a5f", char: "M", color: "#60a5fa" },
-    title: "Maact Documentation",
-    desc: "This is a documentation project and UI component library built with React, TypeScript and Storybook. Features live examples, code snippets, and interactive playground.",
-    tags: ["React", "TypeScript"],
-    link: "#",
-    mockup: "desktop",
-    mockupAccent: "#60a5fa",
-  },
-  {
-    id: 3,
-    icon: { bg: "#3b1f2b", char: "S", color: "#f472b6" },
-    title: "Storybook Documentation",
-    desc: "A comprehensive design system documentation site built on top of Storybook. Includes component specs, usage guidelines, and accessibility notes for a mid-size SaaS product.",
-    tags: ["Storybook", "Design Systems"],
-    link: "#",
-    mockup: "docs",
-    mockupAccent: "#f472b6",
+    icon: (
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 flex-shrink-0"
+        style={{ background: "transparent" }}>
+        {/* React atom logo */}
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+          <ellipse cx="12" cy="12" rx="2" ry="2" fill="#61dafb" />
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" strokeWidth="1.2" fill="none" />
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" strokeWidth="1.2" fill="none" transform="rotate(60 12 12)" />
+          <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" strokeWidth="1.2" fill="none" transform="rotate(120 12 12)" />
+        </svg>
+      </div>
+    ),
+    title: "React Documentation",
+    desc: "With the release of the new React website on March 16, there was a need for localization to make the documentation accessible to Arabic-speaking developers. I contributed to translating several documentation, worked with great developers, improved my ability to write better PR requests, and as a side effect, I now know more about the Arabic grammar.",
+    linkLabel: "Visit Site",
+    mockup: <TabletMockup />,
   },
 ];
 
-function PhoneMockup({ accent }: { accent: string }) {
-  return (
-    <div className="relative w-full h-full flex items-center justify-end pr-4">
-      {/* Phone frame */}
-      <div
-        className="relative w-[140px] h-[260px] rounded-[28px] border border-white/20 overflow-hidden flex-shrink-0"
-        style={{ background: "#0a0a0a", boxShadow: `0 0 40px ${accent}30` }}
-      >
-        {/* Notch */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-2 rounded-full bg-black z-10" />
-        {/* Screen */}
-        <div className="absolute inset-1 rounded-[22px] overflow-hidden" style={{ background: "#111" }}>
-          {/* App header */}
-          <div className="px-3 pt-5 pb-2">
-            <div className="text-[8px] text-white/40 mb-0.5">Subscriptions</div>
-            <div className="text-xl font-bold text-white" style={{ color: accent }}>$10.84</div>
-            <div className="text-[7px] text-white/30">this month</div>
-          </div>
-          {/* Mini cards */}
-          {[
-            { name: "Netflix", price: "$4.99", color: "#ef4444" },
-            { name: "Spotify", price: "$2.99", color: accent },
-            { name: "iCloud",  price: "$0.99", color: "#3b82f6" },
-          ].map((s) => (
-            <div key={s.name} className="mx-2 mb-1 px-2 py-1.5 rounded-lg flex items-center justify-between" style={{ background: "#1a1a1a" }}>
-              <div className="w-4 h-4 rounded-md flex-shrink-0" style={{ background: s.color }} />
-              <span className="text-[7px] text-white/70 flex-1 ml-1">{s.name}</span>
-              <span className="text-[7px] font-mono" style={{ color: s.color }}>{s.price}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* Floating price card */}
-      <div
-        className="absolute top-6 right-0 px-3 py-2 rounded-xl text-xs font-bold text-white"
-        style={{ background: accent, boxShadow: `0 4px 20px ${accent}60` }}
-      >
-        $10.84
-      </div>
-    </div>
-  );
-}
-
-function DesktopMockup({ accent }: { accent: string }) {
-  return (
-    <div className="relative w-full h-full flex items-center justify-end">
-      <div
-        className="w-full max-w-[320px] h-[200px] rounded-xl border border-white/10 overflow-hidden flex-shrink-0"
-        style={{ background: "#0d1117", boxShadow: `0 0 40px ${accent}20` }}
-      >
-        {/* Window bar */}
-        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/5">
-          <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-          <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
-          <div className="w-2 h-2 rounded-full bg-[#28c840]" />
-          <div className="flex-1 ml-2 h-2 rounded bg-white/5" />
-        </div>
-        {/* Code-like content */}
-        <div className="p-3 space-y-1.5">
-          {[accent + "80", "#ffffff30", "#ffffff20", accent + "60", "#ffffff25", "#ffffff15"].map((c, i) => (
-            <div key={i} className="h-1.5 rounded-full" style={{ background: c, width: `${[85,65,72,55,78,45][i]}%` }} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function DocsMockup({ accent }: { accent: string }) {
-  return (
-    <div className="relative w-full h-full flex items-center justify-end">
-      <div
-        className="w-full max-w-[320px] h-[200px] rounded-xl border border-white/10 overflow-hidden flex-shrink-0"
-        style={{ background: "#111", boxShadow: `0 0 40px ${accent}20` }}
-      >
-        <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/5">
-          <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-          <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
-          <div className="w-2 h-2 rounded-full bg-[#28c840]" />
-          <div className="flex-1 ml-2 h-2 rounded bg-white/5" />
-        </div>
-        <div className="flex h-full">
-          {/* Sidebar */}
-          <div className="w-1/4 border-r border-white/5 p-2 space-y-2">
-            {[70, 55, 60, 50, 65].map((w, i) => (
-              <div key={i} className="h-1.5 rounded" style={{ width: `${w}%`, background: i === 0 ? accent + "80" : "#ffffff15" }} />
-            ))}
-          </div>
-          {/* Content */}
-          <div className="flex-1 p-3 space-y-2">
-            <div className="h-2 rounded" style={{ width: "60%", background: accent + "90" }} />
-            {[80, 65, 72, 58, 70].map((w, i) => (
-              <div key={i} className="h-1.5 rounded bg-white/10" style={{ width: `${w}%` }} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Projects() {
   return (
-    <section id="work" className="py-20 border-t border-white/[0.05]">
+    <section id="work" className="py-20">
       <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-2xl font-semibold text-white mb-10">Selected Work</h2>
+        <h2 className="text-3xl font-bold text-white mb-8">Selected Work</h2>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           {projects.map((p) => (
-            <article
+            <div
               key={p.id}
-              className="card group overflow-hidden"
-              style={{ minHeight: "220px" }}
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background: "#191919",
+                border: "1px solid rgba(255,255,255,0.06)",
+                minHeight: 460,
+              }}
             >
-              <div className="grid sm:grid-cols-[1fr_300px] lg:grid-cols-[1fr_360px] items-center h-full">
-                {/* ── Left: content ─────────────────────────── */}
-                <div className="p-6 lg:p-8 flex flex-col justify-between h-full">
-                  <div>
-                    {/* Icon + title */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div
-                        className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0"
-                        style={{ background: p.icon.bg, color: p.icon.color }}
-                      >
-                        {p.icon.char}
-                      </div>
-                      <h3 className="text-base font-semibold text-white leading-snug">
-                        {p.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-sm text-[#666] leading-relaxed mb-5 max-w-md">
-                      {p.desc}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center justify-between flex-wrap gap-3">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {p.tags.map((t) => (
-                        <span key={t} className="tag">{t}</span>
-                      ))}
-                    </div>
-                    {/* Read more */}
-                    <a
-                      href={p.link}
-                      className="inline-flex items-center gap-1 text-sm text-[#555] hover:text-white transition-colors group-hover:text-[#888]"
-                    >
-                      Read more
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
+              {/* Left content */}
+              <div className="relative z-10 flex flex-col justify-between h-full p-9 pr-[300px] min-h-[460px]">
+                <div>
+                  {p.icon}
+                  <h3 className="text-[22px] font-bold text-white leading-tight mb-4" style={{ maxWidth: 400 }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-[#777] leading-relaxed" style={{ maxWidth: 420 }}>
+                    {p.desc}
+                  </p>
                 </div>
 
-                {/* ── Right: mockup ─────────────────────────── */}
-                <div
-                  className="hidden sm:block relative h-[220px] overflow-hidden rounded-r-2xl"
-                  style={{
-                    background: `linear-gradient(135deg, ${p.mockupAccent}08 0%, ${p.mockupAccent}04 100%)`,
-                    borderLeft: "1px solid rgba(255,255,255,0.05)",
-                  }}
-                >
-                  {p.mockup === "phone"   && <PhoneMockup   accent={p.mockupAccent} />}
-                  {p.mockup === "desktop" && <DesktopMockup accent={p.mockupAccent} />}
-                  {p.mockup === "docs"    && <DocsMockup    accent={p.mockupAccent} />}
+                {/* Bottom link */}
+                <div className="mt-8">
+                  <a
+                    href="#"
+                    className="inline-flex items-center gap-2 text-sm text-white hover:text-white/70 transition-colors font-medium"
+                  >
+                    {p.linkLabel}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
                 </div>
               </div>
-            </article>
+
+              {/* Right: mockup (absolutely positioned, bleeds off right edge) */}
+              <div className="absolute right-0 top-0 bottom-0 w-[360px] pointer-events-none">
+                {p.mockup}
+              </div>
+            </div>
           ))}
         </div>
       </div>

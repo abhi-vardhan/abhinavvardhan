@@ -2,20 +2,20 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────── */
 :root {
-  --bg:           #000000;
-  --bg-card:      #0d0d0d;
-  --bg-card-2:    #111111;
-  --border:       rgba(255,255,255,0.08);
-  --border-hover: rgba(255,255,255,0.16);
-  --text-1:       #ffffff;
-  --text-2:       #888888;
-  --text-3:       #555555;
+  --bg: #000000;
+  --bg-card: #0d0d0d;
+  --bg-card-2: #111111;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --text-1: #ffffff;
+  --text-2: #888888;
+  --text-3: #555555;
 
   /* gradient palette */
-  --purple: #7928CA;
-  --pink:   #FF0080;
-  --blue:   #0070F3;
-  --teal:   #00DFD8;
+  --purple: #7928ca;
+  --pink: #ff0080;
+  --blue: #0070f3;
+  --teal: #00dfd8;
 }
 
 @theme inline {
@@ -25,33 +25,48 @@
   --font-mono: var(--font-geist-mono);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
   color: var(--text-1);
-  font-family: var(--font-geist-sans), -apple-system, sans-serif;
+  font-family:
+    var(--font-geist-sans),
+    -apple-system,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 /* ─── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 2px;
+}
 
 /* ─── Selection ─────────────────────────────────────────────── */
-::selection { background: var(--purple); color: #fff; }
+::selection {
+  background: var(--purple);
+  color: #fff;
+}
 
 /* ─── Gradient orb blob ─────────────────────────────────────── */
 .gradient-orb {
   background: radial-gradient(
     ellipse at 40% 50%,
     rgba(121, 40, 202, 0.55) 0%,
-    rgba(255,   0, 128, 0.40) 35%,
-    rgba(  0, 223, 216, 0.18) 60%,
-    rgba(  0, 112, 243, 0.10) 75%,
+    rgba(255, 0, 128, 0.4) 35%,
+    rgba(0, 223, 216, 0.18) 60%,
+    rgba(0, 112, 243, 0.1) 75%,
     transparent 90%
   );
   filter: blur(60px);
@@ -64,7 +79,9 @@ body {
   border-radius: 16px;
   transition: border-color 0.2s ease;
 }
-.card:hover { border-color: var(--border-hover); }
+.card:hover {
+  border-color: var(--border-hover);
+}
 
 /* ─── Tag pill ──────────────────────────────────────────────── */
 .tag {
@@ -74,8 +91,8 @@ body {
   font-size: 11px;
   font-weight: 500;
   border-radius: 9999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-2);
   letter-spacing: 0.02em;
 }

@@ -1,122 +1,150 @@
+"use client";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Ambient gradient background */}
+      {/* ── Warm amber/orange background glow (top-right) ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse 70% 60% at 85% 20%, rgba(180, 80, 20, 0.55) 0%, rgba(120, 40, 10, 0.30) 40%, transparent 70%),
+            radial-gradient(ellipse 40% 40% at 75% 10%, rgba(220, 120, 40, 0.30) 0%, transparent 60%)
+          `,
+        }}
+      />
+      {/* Subtle purple tinge on left */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 75% 40%, rgba(121,40,202,0.28) 0%, rgba(255,0,128,0.16) 40%, transparent 70%)",
+            "radial-gradient(ellipse 50% 70% at -10% 60%, rgba(80,20,120,0.18) 0%, transparent 60%)",
         }}
       />
 
-      <div className="relative max-w-5xl mx-auto px-6 pt-24 pb-12 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[80vh]">
-
-          {/* Left: text */}
-          <div className="order-2 lg:order-1">
-            <p className="text-[#666] text-base mb-2 tracking-wide">
-              A front-end engineer and UX designer helping
-            </p>
-
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-4">
-              I&apos;m{" "}
+      <div className="relative w-full max-w-6xl mx-auto px-8 pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 items-center min-h-[calc(100vh-7rem)]">
+          {/* ── Left: text ──────────────────────────────────── */}
+          <div className="order-2 lg:order-1 max-w-2xl">
+            {/* Heading */}
+            <h1
+              className="font-bold tracking-tight leading-none mb-6"
+              style={{ fontSize: "clamp(3.5rem, 9vw, 7.5rem)" }}
+            >
               <span
-                style={{
-                  background: "linear-gradient(135deg, #fff 20%, rgba(255,255,255,0.75) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+                className="italic font-light"
+                style={{ color: "rgba(255,255,255,0.55)" }}
               >
-                Abhinav
+                I&apos;m{" "}
               </span>
+              <span className="text-white font-bold">Abhinav</span>
+              <br />
+              <span className="text-white font-bold">Vardhan.</span>
             </h1>
 
-            <p className="text-[#666] text-base leading-relaxed max-w-sm mb-8">
-              A full-stack developer and UX enthusiast helping brands design and
-              build delightful web products. I enjoy crafting pixel-perfect,
-              accessible apps with clean code.
+            {/* Description */}
+            <p
+              className="text-base sm:text-lg leading-relaxed mb-10 max-w-lg"
+              style={{ color: "rgba(255,255,255,0.45)" }}
+            >
+              A front-end engineer and UI/UX designer helping startups turn
+              their visions into a digital reality. I specialize in designing
+              and building modern mobile and web-based apps.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            {/* Buttons */}
+            <div className="flex flex-wrap gap-4">
               <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
+                href="/resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-lg transition-all duration-200"
+                style={{
+                  background: "rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.background = "rgba(255,255,255,0.18)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+                }
               >
-                Get in touch
+                See my resume
               </a>
               <a
-                href="#work"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white text-sm font-medium rounded-full hover:border-white/40 hover:bg-white/[0.04] transition-all"
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200"
+                style={{
+                  color: "rgba(255,255,255,0.6)",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  background: "transparent",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                  (e.currentTarget as HTMLElement).style.color =
+                    "rgba(255,255,255,0.9)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.color =
+                    "rgba(255,255,255,0.6)";
+                }}
               >
-                See my work
+                Get in touch
               </a>
             </div>
           </div>
 
-          {/* Right: orb + avatar */}
-          <div className="order-1 lg:order-2 relative flex items-center justify-center h-[340px] lg:h-[480px]">
-            {/* Multi-color gradient orb */}
+          {/* ── Right: dark silhouette circle ─────────────── */}
+          <div className="order-1 lg:order-2 relative flex items-center justify-center lg:justify-end h-[360px] lg:h-auto">
+            {/* Large dark circle — the silhouette */}
             <div
-              className="absolute w-[400px] h-[400px] rounded-full pointer-events-none"
-              style={{
-                background: `radial-gradient(
-                  ellipse at 45% 45%,
-                  rgba(121, 40, 202, 0.65) 0%,
-                  rgba(255,   0, 128, 0.50) 28%,
-                  rgba(  0, 223, 216, 0.22) 55%,
-                  rgba(  0, 112, 243, 0.10) 70%,
-                  transparent 85%
-                )`,
-                filter: "blur(55px)",
-                transform: "translate(5%, -5%)",
-              }}
-            />
-            {/* Bright inner core */}
-            <div
-              className="absolute w-[180px] h-[180px] rounded-full pointer-events-none"
-              style={{
-                background: "radial-gradient(circle, rgba(255,0,128,0.55) 0%, rgba(121,40,202,0.3) 50%, transparent 80%)",
-                filter: "blur(28px)",
-                transform: "translate(12%, -12%)",
-              }}
-            />
-
-            {/* Avatar */}
-            <div className="relative z-10 flex flex-col items-center">
+              className="relative"
+              style={{ width: "min(480px, 90vw)", aspectRatio: "1" }}
+            >
+              {/* Outer circle */}
               <div
-                className="w-52 h-52 rounded-full overflow-hidden border-2 border-white/10"
+                className="absolute inset-0 rounded-full"
                 style={{
-                  background: "linear-gradient(145deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%)",
-                  boxShadow: "0 0 60px rgba(121,40,202,0.4), 0 0 120px rgba(255,0,128,0.2)",
+                  background:
+                    "radial-gradient(circle at 50% 40%, #1a1a1a 0%, #0d0d0d 55%, #080808 100%)",
+                  boxShadow: "inset 0 -20px 60px rgba(0,0,0,0.8)",
                 }}
+              />
+              {/* Person silhouette SVG */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 480 480"
+                fill="none"
               >
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <ellipse cx="100" cy="165" rx="45" ry="30" fill="#1e293b" />
-                  <ellipse cx="100" cy="155" rx="38" ry="22" fill="#7928CA" />
-                  <rect x="90" y="125" width="20" height="20" rx="4" fill="#fbbf8a" />
-                  <ellipse cx="100" cy="105" rx="38" ry="42" fill="#fbbf8a" />
-                  <ellipse cx="100" cy="72" rx="38" ry="22" fill="#1a1a1a" />
-                  <ellipse cx="70" cy="82" rx="12" ry="18" fill="#1a1a1a" />
-                  <ellipse cx="130" cy="82" rx="12" ry="18" fill="#1a1a1a" />
-                  <ellipse cx="85" cy="105" rx="7" ry="8" fill="white" />
-                  <ellipse cx="115" cy="105" rx="7" ry="8" fill="white" />
-                  <ellipse cx="86" cy="106" rx="4" ry="5" fill="#1a1a1a" />
-                  <ellipse cx="116" cy="106" rx="4" ry="5" fill="#1a1a1a" />
-                  <ellipse cx="87" cy="104" rx="1.5" ry="1.5" fill="white" />
-                  <ellipse cx="117" cy="104" rx="1.5" ry="1.5" fill="white" />
-                  <path d="M78 96 Q86 91 93 95" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                  <path d="M107 95 Q114 91 122 96" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                  <path d="M98 112 Q100 118 102 112" stroke="#e8956d" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-                  <path d="M88 124 Q100 133 112 124" stroke="#e8956d" strokeWidth="2" strokeLinecap="round" fill="none" />
-                  <ellipse cx="62" cy="108" rx="7" ry="9" fill="#fbbf8a" />
-                  <ellipse cx="138" cy="108" rx="7" ry="9" fill="#fbbf8a" />
-                </svg>
-              </div>
-              <div className="mt-3 px-3 py-1 rounded-full text-xs font-mono bg-white/[0.06] border border-white/[0.1] text-[#666]">
-                Full-stack Developer
-              </div>
+                {/* Head */}
+                <ellipse cx="240" cy="155" rx="62" ry="72" fill="#111" />
+                {/* Neck */}
+                <rect
+                  x="222"
+                  y="218"
+                  width="36"
+                  height="28"
+                  rx="6"
+                  fill="#111"
+                />
+                {/* Shoulders / torso */}
+                <path
+                  d="M100 480 C100 350 160 300 240 290 C320 300 380 350 380 480 Z"
+                  fill="#0f0f0f"
+                />
+                {/* Hair */}
+                <ellipse cx="240" cy="102" rx="68" ry="42" fill="#0d0d0d" />
+                <ellipse cx="182" cy="130" rx="22" ry="36" fill="#0d0d0d" />
+                <ellipse cx="298" cy="130" rx="22" ry="36" fill="#0d0d0d" />
+              </svg>
+              {/* Subtle warm rim light on the circle edge */}
+              <div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 85% 15%, rgba(180,80,20,0.18) 0%, transparent 50%)",
+                }}
+              />
             </div>
           </div>
         </div>

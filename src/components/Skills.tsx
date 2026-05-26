@@ -35,18 +35,35 @@ const skillGroups = [
 ];
 
 const techStack = [
-  "React", "Next.js", "TypeScript", "Node.js", "Tailwind CSS",
-  "PostgreSQL", "MongoDB", "GraphQL", "Docker", "AWS",
-  "Prisma", "Redis", "Figma", "Git", "Vercel",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Tailwind CSS",
+  "PostgreSQL",
+  "MongoDB",
+  "GraphQL",
+  "Docker",
+  "AWS",
+  "Prisma",
+  "Redis",
+  "Figma",
+  "Git",
+  "Vercel",
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 border-t border-white/[0.06]">
+    <section
+      id="skills"
+      className="relative py-24 border-t border-white/[0.06]"
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Section label */}
         <div className="flex items-center gap-3 mb-12">
-          <span className="font-mono text-xs text-[#0070f3] uppercase tracking-widest">02 / Skills</span>
+          <span className="font-mono text-xs text-[#0070f3] uppercase tracking-widest">
+            02 / Skills
+          </span>
           <span className="flex-1 max-w-[60px] h-px bg-[#0070f3]/30" />
         </div>
 
@@ -56,8 +73,9 @@ export default function Skills() {
               Technologies I work with
             </h2>
             <p className="text-[#666666] text-base leading-relaxed">
-              A curated toolkit built through real projects. I believe in mastering fundamentals
-              before adopting new tools — quality over quantity.
+              A curated toolkit built through real projects. I believe in
+              mastering fundamentals before adopting new tools — quality over
+              quantity.
             </p>
           </div>
 
@@ -94,8 +112,12 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-sm text-[#cccccc]">{skill.name}</span>
-                      <span className="text-xs font-mono text-[#444444]">{skill.level}%</span>
+                      <span className="text-sm text-[#cccccc]">
+                        {skill.name}
+                      </span>
+                      <span className="text-xs font-mono text-[#444444]">
+                        {skill.level}%
+                      </span>
                     </div>
                     <div className="h-0.5 w-full bg-white/[0.05] rounded-full overflow-hidden">
                       <div
